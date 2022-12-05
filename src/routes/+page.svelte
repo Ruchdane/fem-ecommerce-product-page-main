@@ -1,14 +1,10 @@
 <script lang="ts">
     import ProductPreview from "../components/product_preview.svelte";
     import Counter from "../components/counter.svelte";
-    import Cart from "../components/cart.svelte";
-
+    
     import { addItem } from "../stores";
     
     const cart = "/icons/icon-cart.svg";
-    const avatar = "/images/image-avatar.png";
-
-    let show_cart = false;
     let product_count = 0;
 
     const previews = [
@@ -43,29 +39,6 @@
 <svelte:head>
     <title>Frontend Mentor | E-commerce product page</title>
 </svelte:head>
-<header class="header">
-    <div class="header-link">
-        <h1 class="logo">sneakers</h1>
-        <nav class="navlinks">
-            <a href="#links" class="navlinks__element">Collections</a>
-            <a href="#links" class="navlinks__element">Men</a>
-            <a href="#links" class="navlinks__element">Women</a>
-            <a href="#links" class="navlinks__element">About</a>
-            <a href="#links" class="navlinks__element">Contact</a>
-        </nav>
-    </div>
-    <div class="header__action">
-        <button class="cart" on:click={() => show_cart = !show_cart}>
-            <img src={cart} alt="cart" />
-        </button>
-        {#if show_cart}
-        <Cart />
-        {/if}
-        <button class="profile">
-            <img src={avatar} alt="RA" />
-        </button>
-    </div>
-</header>
 <main>
     <article class="product">
         <ProductPreview {previews} />
@@ -95,14 +68,3 @@
         </div>
     </article>
 </main>
-
-<footer class="attribution">
-    Challenge by
-    <a
-        href="https://www.frontendmentor.io?ref=challenge"
-        target="_blank"
-        rel="noreferrer">Frontend Mentor</a
-    >. Coded by
-    <a href="https://www.frontendmentor.io/profile/Ruchdane">AMADOU Ruchdane</a
-    >.
-</footer>
