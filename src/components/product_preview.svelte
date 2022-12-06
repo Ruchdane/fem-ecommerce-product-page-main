@@ -1,9 +1,8 @@
 <script lang="ts">
     import type { Preview } from "src/app";
 
-
-    export let previews : Preview[] ;
-    export let navigator : boolean = false;
+    export let previews: Preview[];
+    export let navigator: boolean = false;
     export let onclick = () => {};
     const next = "/icons/icon-next.svg";
     const prev = "/icons/icon-previous.svg";
@@ -25,25 +24,25 @@
 </script>
 
 <div class="product__preview">
-    {#if navigator}    
-    <button class="preview__dismiss" on:click={ondismiss}>
-        <img src={dismiss} alt="dismiss" />
-    </button>
-    <button
-        class="preview__navigator-prev"
-        on:click={onprev}
-        disabled={product_preview_index <= 0}
-    >
-        <img src={prev} alt="prev" />
-    </button>
-    <button
-        class="preview__navigator-next"
-        on:click={onnext}
-        disabled={product_preview_index >= preview_count - 1}
-    >
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <img src={next} alt="next" on:click={onclick}/>
-    </button>
+    {#if navigator}
+        <button class="preview__dismiss" on:click={ondismiss}>
+            <img src={dismiss} alt="dismiss" />
+        </button>
+        <button
+            class="preview__navigator-prev"
+            on:click={onprev}
+            disabled={product_preview_index <= 0}
+        >
+            <img src={prev} alt="prev" />
+        </button>
+        <button
+            class="preview__navigator-next"
+            on:click={onnext}
+            disabled={product_preview_index >= preview_count - 1}
+        >
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <img src={next} alt="next" on:click={onclick} />
+        </button>
     {/if}
     <img
         src={previews[product_preview_index].src}
@@ -57,6 +56,7 @@
                 class="thumbnail_btn"
                 class:thumbnail_btn-active={product_preview_index === index}
             >
+                <div class="thumbnail_btn-overlay" />
                 <img
                     src={item.thumb}
                     alt="thumbnail"
@@ -67,51 +67,67 @@
     </div>
 </div>
 
-
 <style lang="scss">
-.product{
-    --block-width : 430px;
-    &__preview{
-        display: flex;
-        flex-direction: column;
-        gap: 2em;
-    }
-    &__img-main{
-        width: 100%;
-        height: auto;
-        max-width: var(--block-width);
-        
-        border-radius: 10px;
-    }
-    &__thumbnails{
-        display: flex;
-        max-width: var(--block-width);
-        gap: 1em;
-    }
-}
-.preview
-{
-    &__dismiss{
+    .product {
+        --block-width: 430px;
+        &__preview {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+        }
+        &__img-main {
+            width: 100%;
+            height: auto;
+            max-width: var(--block-width);
 
+            border-radius: 10px;
+        }
+        &__thumbnails {
+            display: flex;
+            max-width: var(--block-width);
+            gap: 1em;
+        }
     }
-    &__navigator-prev{
+    .preview {
+        &__dismiss {
+        }
+        &__navigator-prev {
+        }
+        &__navigator-next {
+        }
+    }
 
-    }
-    &__navigator-next{
-
-    }
-}
-.thumbnail_btn{
-    border-radius: 10px;
-    border: 3px transparent;
-    padding: 0;
-    &-active{
+    .thumbnail_btn.thumbnail_btn-active {
         border: 3px solid var(--orange);
     }
-    &-img{
-        border-radius: inherit;
-        width: 100%;
-        height: auto
+    .thumbnail_btn {
+        cursor: pointer;
+        border-radius: 10px;
+        border: 3px transparent;
+
+        padding: 0;
+
+        &-active{
+            .thumbnail_btn-overlay {
+                opacity: 50%;
+            }
+        }
+        &-overlay {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            background-color: var(--white);
+            opacity: 0;
+        }
+        &-img {
+            border-radius: inherit;
+            width: 100%;
+            height: auto;
+        }
+        &:hover {
+            .thumbnail_btn-overlay {
+                opacity: 20%;
+            }
+        }
     }
-}
 </style>
