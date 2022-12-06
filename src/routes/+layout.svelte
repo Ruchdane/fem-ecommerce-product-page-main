@@ -25,16 +25,16 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: center;
 
         font-family: 'Kumbh Sans', sans-serif;
         font-weight: 400;
         font-size: 16px;
         color: var(--black);
         
-        width: 100%;
         min-height: 100vh;
         padding:  0 200px;
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
         
     }
 </style>

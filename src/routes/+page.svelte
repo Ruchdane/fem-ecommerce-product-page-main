@@ -72,7 +72,7 @@
         --block-width: 430px;
         display: flex;
         justify-content: center;
-        gap: 4em;
+        gap: 6em;
         margin-left: auto;
         margin-right: auto;
         &__info {
@@ -91,6 +91,7 @@
             color: var(--black);
         }
         &__description {
+            line-height: 1.8rem;
             color: var(--dark-grayish-blue);
         }
         // &__price {
@@ -111,6 +112,7 @@
 
         }
         &__cart {
+            width: 100%;
             display: flex;
             gap: 1em;
         }
@@ -118,23 +120,26 @@
 
     .discount-price {
         display: grid;
+        gap: 0.4rem 1rem;
         grid-template-areas: "value rate"
         "initial .";
         width: fit-content;
         &__value {
             grid-area: value;
             font-weight: 700;
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
         &__rate {
-            padding: 10px;
-
+            padding: 5px;
+            font-weight: 700;
+            height: fit-content;
             color: var(--orange);
-            background-color: ligthen(hsl(26, 100%, 55%),0.8);
+            background-color: var(--pale-orange);
             grid-area: rate;
         }
         &__intial {
-            color: var(--light-grayish);
+            color: var(--dark-grayish-blue);
+            text-decoration: line-through;
             grid-area: initial;
         }
     }

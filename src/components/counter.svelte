@@ -20,6 +20,7 @@
         display: flex;
         gap: 16px;
         padding: 5px;
+        justify-content: space-between;
         align-items: center;
         border-radius: 5px;
         background-color: var(--light-grayish);

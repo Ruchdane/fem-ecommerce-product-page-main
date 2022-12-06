@@ -46,6 +46,7 @@
     .header {
         display: flex;
         justify-content: space-between;
+        gap: 3em;
         padding-bottom: 25px;
         border-bottom: 2px solid var(--light-grayish);
 
