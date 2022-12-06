@@ -66,3 +66,52 @@
         {/each}
     </div>
 </div>
+
+
+<style lang="scss">
+.product{
+    --block-width : 430px;
+    &__preview{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
+    &__img-main{
+        width: 100%;
+        height: auto;
+        max-width: var(--block-width);
+        
+        border-radius: 10px;
+    }
+    &__thumbnails{
+        display: flex;
+        max-width: var(--block-width);
+        gap: 1em;
+    }
+}
+.preview
+{
+    &__dismiss{
+
+    }
+    &__navigator-prev{
+
+    }
+    &__navigator-next{
+
+    }
+}
+.thumbnail_btn{
+    border-radius: 10px;
+    border: 3px transparent;
+    padding: 0;
+    &-active{
+        border: 3px solid var(--orange);
+    }
+    &-img{
+        border-radius: inherit;
+        width: 100%;
+        height: auto
+    }
+}
+</style>

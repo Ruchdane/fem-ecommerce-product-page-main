@@ -6,7 +6,7 @@
 
 <HeaderDesktop/>
 <HeaderMoblle/>
-<slot/>
+<main><slot/></main>
 <Footer/>
 
 <style global>
@@ -18,20 +18,23 @@
         --dark-grayish-blue: hsl(219, 9%, 45%);
         --grayish-blue: hsl(220, 14%, 75%);
         --light-grayish: hsl(223, 64%, 98%);
-        --White: hsl(0, 0%, 100%);
+        --white: hsl(0, 0%, 100%);
         --black: hsl(0, 0%, 0%);
     }
     body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
         font-family: 'Kumbh Sans', sans-serif;
-        color: var(--black);
         font-weight: 400;
         font-size: 16px;
-
-        min-height: 100vh;
-        width: 100%;
-        margin-right: auto;
-        margin-left: auto;
+        color: var(--black);
         
-        padding: 30px 0;
+        width: 100%;
+        min-height: 100vh;
+        padding:  0 200px;
+        overflow-x: hidden;
+        
     }
 </style>
