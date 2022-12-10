@@ -23,12 +23,19 @@ $breakpoints: (
 }
 
 @include responsive("xm"){
+    body{
+        padding: 0!important;;
+    }
     .desktop{
         display: none!important;
     }
 }
-
 @include responsive("md"){
+    body{
+        padding: 0!important;;
+    }
+}
+@include responsive("bg"){
     .mobile{
         display: none!important;
     }

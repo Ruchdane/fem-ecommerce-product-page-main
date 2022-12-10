@@ -1,4 +1,5 @@
 <script type="ts">
+    import "../style.scss";
     import { setupFloatingCart } from "../floating";
     import Cart from "./cart.svelte";
 
@@ -61,11 +62,11 @@
         &__links{
             display: flex;
             align-items: center;
-            gap: 2em;
+            gap: 0.7rem;
         }
         &__action{
             display: flex;
-            gap: 2em;
+            gap: 0.7rem;
             align-items: center;
         }
 

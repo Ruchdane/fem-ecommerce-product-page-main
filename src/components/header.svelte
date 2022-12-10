@@ -36,7 +36,7 @@
 </header>
 
 <style lang="scss">
-    
+
     @import "../style.scss";
     .header {
         display: flex;
@@ -52,7 +52,7 @@
         }
         &__action {
             display: flex;
-            gap: 2em;
+            gap: 1em;
             align-items: center;
         }
 
