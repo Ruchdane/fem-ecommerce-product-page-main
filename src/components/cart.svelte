@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
     import { cart, removeItem, checkout } from "../stores";
-
+    export let id = "";
+    export let visible = false;
     const trash = "/icons/icon-delete.svg";
 </script>
 
-<div class="cart">
+<div class="cart" {id} class:hidden={!visible}>
     <h4 class="cart__title">Cart</h4>
     {#if $cart.items.length > 0}
         <ul class="cart__items">
@@ -40,9 +41,9 @@
 <style lang="scss">
     .cart {
         position: absolute;
-        z-index: var(--z-cart);
-        top: 82px;
-        left: 60%;
+        width: max-content;
+        top: 0;
+        left: 0;
         overflow-y: auto;
         background-color: var(--white);
         box-shadow: 0px 10px 20px 0px var(--grayish-blue);

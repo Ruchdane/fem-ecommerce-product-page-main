@@ -1,5 +1,5 @@
 <script>
-    import "../style.scss";
+    import "/src/style.scss";
     import HeaderDesktop from "../components/header.svelte";
     import HeaderMoblle from "../components/header-mobile.svelte";
     import Footer from "../components/footer.svelte";

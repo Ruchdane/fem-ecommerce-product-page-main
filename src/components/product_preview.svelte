@@ -49,7 +49,7 @@
         alt="product"
         class="product__img-main"
     />
-    <div class="product__thumbnails">
+    <div class="product__thumbnails desktop">
         {#each previews as item, index (index)}
             <button
                 on:click={() => (product_preview_index = index)}

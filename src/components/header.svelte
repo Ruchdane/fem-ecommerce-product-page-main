@@ -1,12 +1,12 @@
 <script type="ts">
     import Cart from "../components/cart.svelte";
+    import { setupFloatingCart } from "../floating";
     const cart = "/icons/icon-cart.svg";
     const avatar = "/images/image-avatar.png";
-    
     let show_cart = false;
 </script>
 
-<header class="header">
+<header class="header desktop">
     <div class="header__links">
         <h1 class="header__logo">sneakers</h1>
         <nav class="navlinks">
@@ -18,12 +18,17 @@
         </nav>
     </div>
     <div class="header__action">
-        <button class="header__cart btn-secondary" on:click={() => show_cart = !show_cart}>
+        <button
+            id="header-cart-btn"
+            class="header__cart btn-secondary"
+            on:click={() => {
+                show_cart = !show_cart;
+                setupFloatingCart("header-cart-btn", "header-cart");
+            }}
+        >
             <img src={cart} alt="cart" />
         </button>
-        {#if show_cart}
-        <Cart />
-        {/if}
+        <Cart id="header-cart" visible={show_cart} />
         <button class="header__profile">
             <img src={avatar} alt="RA" />
         </button>
@@ -31,43 +36,44 @@
 </header>
 
 <style lang="scss">
+    
+    @import "../style.scss";
     .header {
         display: flex;
         justify-content: space-between;
         gap: 10em;
-        
+
         padding-bottom: 25px;
         border-bottom: 2px solid var(--light-grayish);
-        &__links{
+        &__links {
             display: flex;
             align-items: center;
             gap: 4em;
         }
-        &__action{
+        &__action {
             display: flex;
             gap: 2em;
             align-items: center;
         }
 
-        &__logo{
+        &__logo {
             cursor: pointer;
             margin: 0;
             font-weight: 700;
             font-size: 2.5rem;
         }
 
-        &__cart{
-        
+        &__cart {
         }
 
-        &__profile{
+        &__profile {
             cursor: pointer;
             --radius: 60px;
             width: var(--radius);
             height: var(--radius);
             border: none;
             border-radius: 50%;
-            &:hover{
+            &:hover {
                 border: 1px solid var(--orange);
             }
             & > img {
@@ -76,18 +82,25 @@
             }
         }
     }
-    .navlinks{
+    .navlinks {
         display: flex;
         gap: 2em;
-        &__element{
+        &__element {
             text-decoration: none;
             color: var(--dark);
-            &:hover{
+            &:hover {
                 color: var(--dark-grayish-blue);
-                border-bottom: 1px solid var( --orange);
+                border-bottom: 1px solid var(--orange);
             }
         }
     }
 
-
+    @include responsive("md") {
+        .header,
+        .header__links {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
 </style>

@@ -1,5 +1,7 @@
 <script type="ts">
+    import { setupFloatingCart } from "../floating";
     import Cart from "./cart.svelte";
+
     const cart = "/icons/icon-cart.svg";
     const avatar = "/images/image-avatar.png";
     const hamburger = "/icons/icon-menu.svg";
@@ -9,7 +11,7 @@
     let show_navlinks = false;
 </script>
 
-<header class="header">
+<header class="header mobile">
     <div class="header__links">
         <button on:click={() => show_navlinks = true} class="header__button btn-secondary">
             <img src={hamburger} alt="Show sidebar">
@@ -30,13 +32,14 @@
         </nav>
         {/if}
     </div>
-    <div class="header__action">
-        <button class="header__button btn-secondary" on:click={() => show_cart = !show_cart}>
+    <div class="header__action" id="m-header-cart-btn">
+        <button class="header__button btn-secondary" on:click={() =>{
+             show_cart = !show_cart;
+             setupFloatingCart("m-header-cart-btn", "m-header-cart");
+        }}>
             <img src={cart} alt="cart" />
         </button>
-        {#if show_cart}
-        <Cart />
-        {/if}
+        <Cart id="m-header-cart" visible={show_cart} />
         <button class="header__profile">
             <img src={avatar} alt="RA" />
         </button>

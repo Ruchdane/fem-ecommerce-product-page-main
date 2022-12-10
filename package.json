@@ -26,6 +26,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@floating-ui/dom": "^1.0.9",
 		"sass": "^1.56.1"
 	}
 }
