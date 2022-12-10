@@ -56,7 +56,6 @@
                 class="thumbnail_btn"
                 class:thumbnail_btn-active={product_preview_index === index}
             >
-                <div class="thumbnail_btn-overlay" />
                 <img
                     src={item.thumb}
                     alt="thumbnail"
@@ -99,35 +98,23 @@
 
     .thumbnail_btn.thumbnail_btn-active {
         border: 3px solid var(--orange);
+        filter: opacity(0.4);
     }
     .thumbnail_btn {
         cursor: pointer;
+        box-sizing: border-box;
         border-radius: 10px;
-        border: 3px transparent;
+        border: 3px solid white;
 
         padding: 0;
-
-        &-active{
-            .thumbnail_btn-overlay {
-                opacity: 50%;
-            }
-        }
-        &-overlay {
-            width: 100px;
-            height: 100px;
-            position: fixed;
-            background-color: var(--white);
-            opacity: 0;
-        }
         &-img {
-            border-radius: inherit;
+            border-radius: 5px;
             width: 100%;
             height: auto;
         }
         &:hover {
-            .thumbnail_btn-overlay {
-                opacity: 20%;
-            }
+            filter: opacity(0.4);
         }
     }
+
 </style>

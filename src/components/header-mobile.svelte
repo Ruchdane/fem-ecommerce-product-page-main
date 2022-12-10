@@ -11,13 +11,13 @@
 
 <header class="header">
     <div class="header__links">
-        <button on:click={() => show_navlinks = true} class="header__button">
+        <button on:click={() => show_navlinks = true} class="header__button btn-secondary">
             <img src={hamburger} alt="Show sidebar">
         </button>
         <h1 class="header__logo">sneakers</h1>
         {#if show_navlinks}
         <nav class="header__sidebar">
-            <button on:click={() => show_navlinks = false} class="header__button">
+            <button on:click={() => show_navlinks = false} class="header__button btn-secondary">
                 <img src={dismiss} alt="Hide sidebar">
             </button>
             <ul class="header__navlinks">
@@ -31,7 +31,7 @@
         {/if}
     </div>
     <div class="header__action">
-        <button class="header__button" on:click={() => show_cart = !show_cart}>
+        <button class="header__button btn-secondary" on:click={() => show_cart = !show_cart}>
             <img src={cart} alt="cart" />
         </button>
         {#if show_cart}

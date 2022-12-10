@@ -29,7 +29,7 @@
                 </li>
             {/each}
         </ul>
-        <button class="item__checkout" on:click={() => checkout()}>
+        <button class="item__checkout btn-primary" on:click={() => checkout()}>
             Checkout
         </button>
     {:else}
@@ -99,11 +99,6 @@
         }
 
         &__checkout{
-            margin: 1rem;
-            padding: 1rem;
-            width: 100%;
-            background-color: var(--orange);
-            color: var(--white);
         }
 
         &__price-calculation {

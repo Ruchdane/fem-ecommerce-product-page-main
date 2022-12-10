@@ -18,7 +18,7 @@
         </nav>
     </div>
     <div class="header__action">
-        <button class="header__cart" on:click={() => show_cart = !show_cart}>
+        <button class="header__cart btn-secondary" on:click={() => show_cart = !show_cart}>
             <img src={cart} alt="cart" />
         </button>
         {#if show_cart}
@@ -57,12 +57,7 @@
         }
 
         &__cart{
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-            &:focus{
-                border: 1px solid var(--orange);
-            }
+        
         }
 
         &__profile{

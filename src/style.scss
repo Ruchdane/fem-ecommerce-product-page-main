@@ -55,3 +55,48 @@ body {
 
 }
 
+.btn-primary {
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--orange);
+    color: var(--white);
+    
+    font-weight: 700;
+    font-size: 1rem;
+    
+    border: none;
+    border-radius: 10px;
+
+    transition: all 0.2s ease;    
+    &:hover {
+        filter: opacity(0.4);
+        box-shadow: 5px 20px 17px 0px rgba(255, 165, 0, 0.4); /* add a soft orange shadow on hover */
+        transform: translateY(-2px);
+    }
+
+    &:active{
+        filter: none;
+        transform: translateY(2px);
+    }
+    &:disabled{
+            cursor: not-allowed;
+            box-shadow: none;
+            pointer-events: none;
+            background-color: var(--grayish-blue);
+        }
+}
+
+.btn-secondary{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    &:focus{
+        border: 1px solid var(--orange);
+    }
+}

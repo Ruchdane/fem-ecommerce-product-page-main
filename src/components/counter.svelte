@@ -24,11 +24,15 @@
         align-items: center;
         border-radius: 5px;
         background-color: var(--light-grayish);
+        min-width: 100px;
         &__btn{
             cursor: pointer;
             background-color: transparent;
             border: none;
             color: var(--orange);
+            :disabled{
+                color: var(--grayish-blue);
+            }
         }
 
         // &__label{
