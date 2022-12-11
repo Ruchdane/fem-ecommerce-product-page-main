@@ -1,12 +1,11 @@
 <script lang="ts">
-    import { fade } from "svelte/types/runtime/transition";
     import { cart, removeItem, checkout } from "../stores";
     export let id = "";
     export let visible = false;
     const trash = "/icons/icon-delete.svg";
 </script>
 
-<div class="cart" {id} class:hidden={!visible}  transition:fade>
+<div class="cart" {id} class:hidden={!visible}  >
     <h4 class="cart__title">Cart</h4>
     {#if $cart.items.length > 0}
         <ul class="cart__items">
