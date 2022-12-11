@@ -1,5 +1,4 @@
 <script type="ts">
-    import { fade } from "svelte/types/runtime/transition";
 import Cart from "../components/cart.svelte";
     import { setupFloatingCart } from "../floating";
     const cart = "/icons/icon-cart.svg";
