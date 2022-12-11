@@ -98,7 +98,9 @@
 
     .thumbnail_btn.thumbnail_btn-active {
         border: 3px solid var(--orange);
-        filter: opacity(0.4);
+        .thumbnail_btn-img {
+            filter: opacity(0.4);
+        }
     }
     .thumbnail_btn {
         cursor: pointer;
@@ -113,7 +115,9 @@
             height: auto;
         }
         &:hover {
-            filter: opacity(0.4);
+            .thumbnail_btn-img  {
+                filter: opacity(0.4);
+            }
         }
     }
 

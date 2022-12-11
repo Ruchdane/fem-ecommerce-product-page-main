@@ -1,5 +1,6 @@
 <script type="ts">
-    import Cart from "../components/cart.svelte";
+    import { fade } from "svelte/types/runtime/transition";
+import Cart from "../components/cart.svelte";
     import { setupFloatingCart } from "../floating";
     const cart = "/icons/icon-cart.svg";
     const avatar = "/images/image-avatar.png";
@@ -28,7 +29,7 @@
         >
             <img src={cart} alt="cart" />
         </button>
-        <Cart id="header-cart" visible={show_cart} />
+        <Cart id="header-cart"/>
         <button class="header__profile">
             <img src={avatar} alt="RA" />
         </button>
@@ -83,14 +84,17 @@
         }
     }
     .navlinks {
+        color: var(--dark-grayish-blue);
         display: flex;
         gap: 2em;
         &__element {
             text-decoration: none;
             color: var(--dark);
             &:hover {
-                color: var(--dark-grayish-blue);
-                border-bottom: 1px solid var(--orange);
+                box-shadow: 0px 37px var(--white),0 40px var(--orange);
+            }
+            &:active{
+                color: var(--black);
             }
         }
     }

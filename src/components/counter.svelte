@@ -30,8 +30,12 @@
             background-color: transparent;
             border: none;
             color: var(--orange);
-            :disabled{
-                color: var(--grayish-blue);
+           &:disabled{
+                cursor: not-allowed;
+                filter: opacity(0);
+            }
+            &:hover{
+                filter:opacity(0.2);
             }
         }
 

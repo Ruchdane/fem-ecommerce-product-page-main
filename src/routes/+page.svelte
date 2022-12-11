@@ -60,7 +60,7 @@
                 onchange={(val) => (product_count = val)}
             />
             <button class="product__add-to-cart-btn btn-primary" on:click={addtocart} disabled={product_count==0}>
-                <img src={cart} alt="cart" />
+                <img src={cart} alt="cart"  class="white"/>
                 <span>Add to cart</span>
             </button>
         </div>
@@ -100,36 +100,7 @@
         // }
 
         &__add-to-cart-btn{
-            // box-shadow: var(--pale-orange) 0px 15px 15px 1px;
-            // will-change: transform;
-            // animation: all 300s ease-in;
-            // &:focus{
-            //     background-color: var(--orange);
-            // }
-
-            // &:hover{
-            //     transform: translateY(-2px);
-            //     background-color: var(--pale-orange);
-            // }
-
-            // &:disabled{
-            //     cursor: not-allowed;
-            //     box-shadow: none;
-            //     pointer-events: none;
-            //     background-color: var(--grayish-blue);
-            // }
-
-            // cursor: pointer;
-            // border:none;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-            // padding: 1rem;
-            // border-radius: 10px;
-            // width: 100%;
-            // color: var(--white);
-            // background-color: var(--orange);
-
+            gap: 1rem;
         }
         &__cart {
             width: 100%;
