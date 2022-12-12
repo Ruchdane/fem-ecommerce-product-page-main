@@ -30,9 +30,11 @@
                 </li>
             {/each}
         </ul>
-        <button class="item__checkout btn-primary" on:click={() => checkout()}>
-            Checkout
-        </button>
+        <div class="item__checkout">
+            <button class="btn-primary" on:click={() => checkout()}>
+                Checkout
+            </button>
+        </div>
     {:else}
         <div class="cart__empty">Your cart is empty</div>
     {/if}
@@ -49,7 +51,7 @@
         box-shadow: 0px 10px 20px 0px var(--grayish-blue);
         // box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2); /* adjust the values to add a softer shadow */
         width: fit-content;
-        min-width: 300px;
+        min-width: 350px;
         min-height: 200px;
         border-radius: 10px;
         &__title {
@@ -75,6 +77,7 @@
     .item {
         display: grid;
         gap: 0.5rem 1rem;
+        color: var(--dark-grayish-blue);
         grid-template-areas:
             "thumb name  name  delete"
             "thumb price price delete";
@@ -100,13 +103,11 @@
         }
 
         &__checkout{
+            padding: 1rem;
         }
 
-        &__price-calculation {
-        }
         &__price-value {
-        }
-        &__checkout {
+            color: black;
         }
     }
 </style>

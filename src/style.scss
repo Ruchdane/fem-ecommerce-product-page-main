@@ -1,26 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Montserrat:wght@500&display=swap');
 
-$breakpoints: (
-    'xm': ('min': 0px,'max': 375px),
-    'md': ('min': 375px,'max': 910px),
-    'bg': ('min': 375px,'max': null)
-);
+@import "mixin.scss";
 
-@mixin responsive($breakpoint) {
-    $breakpoint-min: map-get($breakpoints, $breakpoint, 'min');
-    $breakpoint-max: map-get($breakpoints, $breakpoint, 'max');
-    @if $breakpoint-max == null {
-        @media (min-width: calc($breakpoint-min + 1px)) {
-            @content;
-        }
-    }
-
-    @else {
-        @media (min-width: calc($breakpoint-min + 1px)) and (max-width: $breakpoint-max) {
-            @content;
-        }
-    }
-}
 
 @include responsive("xm"){
     body{
@@ -118,7 +99,7 @@ body {
             background-color: var(--grayish-blue);
         }
 }
-
+// @ignore
 .btn-secondary{
     cursor: pointer;
     background-color: transparent;
@@ -127,4 +108,3 @@ body {
         border: 1px solid var(--orange);
     }
 }
-@ignore

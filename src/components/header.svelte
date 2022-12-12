@@ -28,7 +28,7 @@ import Cart from "../components/cart.svelte";
         >
             <img src={cart} alt="cart" />
         </button>
-        <Cart id="header-cart"/>
+        <Cart id="header-cart" visible={show_cart}/>
         <button class="header__profile">
             <img src={avatar} alt="RA" />
         </button>
@@ -36,8 +36,7 @@ import Cart from "../components/cart.svelte";
 </header>
 
 <style lang="scss">
-
-    @import "../style.scss";
+    @import "../mixin.scss";
     .header {
         display: flex;
         justify-content: space-between;
@@ -61,9 +60,6 @@ import Cart from "../components/cart.svelte";
             margin: 0;
             font-weight: 700;
             font-size: 2.5rem;
-        }
-
-        &__cart {
         }
 
         &__profile {
