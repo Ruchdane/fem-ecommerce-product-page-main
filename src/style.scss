@@ -39,6 +39,7 @@
 
     /* Index */
     --z-cart: 2;
+    --z-lightbox: 4;
 }
 
 body {
@@ -99,12 +100,15 @@ body {
             background-color: var(--grayish-blue);
         }
 }
-// @ignore
+
 .btn-secondary{
     cursor: pointer;
     background-color: transparent;
     border: none;
     &:focus{
         border: 1px solid var(--orange);
+    }
+    &:disabled{
+        cursor: not-allowed;
     }
 }
