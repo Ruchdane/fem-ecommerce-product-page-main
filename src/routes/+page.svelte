@@ -34,13 +34,28 @@
             count: product_count,
         });
     }
+
+    let show_lightbox = false;
+    let lightbox_idx = 0;
+    function show_lightboxfn(idx: number): void {
+        show_lightbox = true;
+        lightbox_idx = idx;
+    }
 </script>
 
 <svelte:head>
     <title>Frontend Mentor | E-commerce product page</title>
 </svelte:head>
 <article class="product">
-    <ProductPreview {previews} />
+    <div class="lightbox" class:hidden={!show_lightbox}>
+        <ProductPreview 
+            {previews}
+            navigator={true}
+            ondismiss={() => show_lightbox = false} 
+            default_idx={lightbox_idx}
+        />
+    </div>
+    <ProductPreview {previews} onclick={show_lightboxfn}/>
     <div class="product__info">
         <h2 class="product__company">Sneaker Company</h2>
         <h1 class="product__name">Fall Limited Edition Sneakers</h1>
@@ -133,5 +148,19 @@
             text-decoration: line-through;
             grid-area: initial;
         }
+    }
+
+    .lightbox{
+        z-index: var(--z-lightbox);
+        position: absolute;
+        top:0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
     }
 </style>
