@@ -3,8 +3,8 @@
 
     export let previews: Preview[];
     export let navigator: boolean = false;
-    export let default_idx:number = 0;
-    export let onclick: ((id:number) => void) | undefined = undefined;
+    export let default_idx: number = 0;
+    export let onclick: ((id: number) => void) | undefined = undefined;
     const next = "/icons/icon-next.svg";
     const prev = "/icons/icon-previous.svg";
     const dismiss = "/icons/icon-close.svg";
@@ -24,27 +24,33 @@
 </script>
 
 <div class="product__preview">
-    {#if navigator}
-        <button class="preview__dismiss" on:click={ondismiss}>
-            <img src={dismiss} alt="dismiss" />
-        </button>
-        <button
-            class="preview__navigator-prev"
-            on:click={onprev}
-            disabled={product_preview_index <= 0}
-        >
-            <img src={prev} alt="prev" />
-        </button>
-        <button
-            class="preview__navigator-next"
-            on:click={onnext}
-            disabled={product_preview_index >= preview_count - 1}
-        >
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <img src={next} alt="next" />
-        </button>
-    {/if}
-    <button on:click={() => {if(onclick != undefined) onclick(product_preview_index)}} class="btn-secondary" disabled={onclick == undefined}>
+    <button
+        on:click={() => {
+            if (onclick != undefined) onclick(product_preview_index);
+        }}
+        class="btn-secondary navigator-container"
+        disabled={onclick == undefined}
+    >
+        {#if navigator}
+            <button class="preview__dismiss" on:click={ondismiss}>
+                <img src={dismiss} alt="dismiss" />
+            </button>
+            <button
+                class="preview__navigator-prev"
+                on:click={onprev}
+                disabled={product_preview_index <= 0}
+            >
+                <img src={prev} alt="prev" />
+            </button>
+            <button
+                class="preview__navigator-next"
+                on:click={onnext}
+                disabled={product_preview_index >= preview_count - 1}
+            >
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <img src={next} alt="next" />
+            </button>
+        {/if}
         <img
             src={previews[product_preview_index].src}
             alt="product"
@@ -90,48 +96,55 @@
         }
     }
 
-    .rounded-button{
+    .rounded-button {
         cursor: pointer;
-    
-    max-width: 40px;
-    padding: 1rem;
-    background-color: var(--orange);
-    color: var(--black);
-    
-    border: none;
-    border-radius: 50%;
+        position: absolute;
 
-    transition: all 0.2s ease;    
-    &:hover {
-        color: var(--orange)
-    }
+        max-width: 40px;
+        padding: 1rem;
+        background-color: var(--white);
+        color: var(--black);
 
-    &:active{
-        filter: none;
-        transform: translateY(2px);
-    }
-    &:disabled{
+        border: none;
+        border-radius: 50%;
+
+        transition: all 0.2s ease;
+        &:hover {
+            color: var(--orange)!important;
+        }
+
+        &:active {
+            filter: none;
+            color: var(--orange);
+            transform: translateY(2px);
+        }
+        &:disabled {
             cursor: not-allowed;
             box-shadow: none;
             pointer-events: none;
             background-color: var(--grayish-blue);
         }
     }
+    .navigator-container {
+        position: relative;
+    }
+
     .preview {
         &__dismiss {
             @extend .rounded-button;
             background-color: transparent;
+            top: -2.5rem;
+            right: 0.5rem;
         }
         &__navigator-prev {
             @extend .rounded-button;
-            position: relative;
-            top: 50%
+            top: 50%;
+            left: -1rem;
         }
         &__navigator-next {
             @extend .rounded-button;
-            position: relative;
             top: 50%;
-            right: 0;
+            right: -1rem;
         }
     }
 
@@ -154,10 +167,9 @@
             height: auto;
         }
         &:hover {
-            .thumbnail_btn-img  {
+            .thumbnail_btn-img {
                 filter: opacity(0.4);
             }
         }
     }
-
 </style>
