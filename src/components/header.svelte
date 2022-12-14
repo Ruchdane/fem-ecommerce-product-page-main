@@ -1,7 +1,7 @@
 <script type="ts">
 import Cart from "../components/cart.svelte";
     import { setupFloatingCart } from "../floating";
-    const cart = "/icons/icon-cart.svg";
+    import IconCart from "./icons/icon-cart.svelte";
     const avatar = "/images/image-avatar.png";
     let show_cart = false;
 </script>
@@ -26,7 +26,7 @@ import Cart from "../components/cart.svelte";
                 setupFloatingCart("header-cart-btn", "header-cart");
             }}
         >
-            <img src={cart} alt="cart" />
+            <IconCart/>
         </button>
         <Cart id="header-cart" visible={show_cart}/>
         <button class="header__profile">

@@ -2,11 +2,12 @@
     import "../style.scss";
     import { setupFloatingCart } from "../floating";
     import Cart from "./cart.svelte";
+    import IconCart from "../components/icons/icon-cart.svelte";
+    import  IconMenu from "../components/icons/icon-menu.svelte";
+    import  IconClose from   "../components/icons/icon-close.svelte";
 
-    const cart = "/icons/icon-cart.svg";
+    
     const avatar = "/images/image-avatar.png";
-    const hamburger = "/icons/icon-menu.svg";
-    const dismiss = "/icons/icon-close.svg";
 
     let show_cart = false;
     let show_navlinks = false;
@@ -15,13 +16,13 @@
 <header class="header mobile">
     <div class="header__links">
         <button on:click={() => show_navlinks = true} class="header__button btn-secondary">
-            <img src={hamburger} alt="Show sidebar">
+            <IconMenu/>
         </button>
         <h1 class="header__logo">sneakers</h1>
         {#if show_navlinks}
         <nav class="header__sidebar">
             <button on:click={() => show_navlinks = false} class="header__button btn-secondary">
-                <img src={dismiss} alt="Hide sidebar">
+                <IconClose/>
             </button>
             <ul class="header__navlinks">
                 <li><a href="#links" class="header__navlinks-element">Collections</a></li>
@@ -38,7 +39,7 @@
              show_cart = !show_cart;
              setupFloatingCart("m-header-cart-btn", "m-header-cart");
         }}>
-            <img src={cart} alt="cart" />
+        <IconCart/>
         </button>
         <Cart id="m-header-cart" visible={show_cart} />
         <button class="header__profile">

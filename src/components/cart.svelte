@@ -1,8 +1,8 @@
 <script lang="ts">
     import { cart, removeItem, checkout } from "../stores";
+    import IconDelete from "./icons/icon-delete.svelte";
     export let id = "";
     export let visible = false;
-    const trash = "/icons/icon-delete.svg";
 </script>
 
 <div class="cart" {id} class:hidden={!visible}  >
@@ -25,7 +25,7 @@
                         class="item__delete"
                         on:click={() => removeItem(index)}
                     >
-                        <img src={trash} alt="delete" />
+                        <IconDelete/>
                     </button>
                 </li>
             {/each}

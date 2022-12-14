@@ -1,13 +1,13 @@
 <script lang="ts">
     import type { Preview } from "src/app";
+    import IconNext from "./icons/icon-next.svelte";
+    import IconPrevious from "./icons/icon-previous.svelte";
+    import IconClose from "./icons/icon-close.svelte";
 
     export let previews: Preview[];
     export let navigator: boolean = false;
     export let default_idx: number = 0;
     export let onclick: ((id: number) => void) | undefined = undefined;
-    const next = "/icons/icon-next.svg";
-    const prev = "/icons/icon-previous.svg";
-    const dismiss = "/icons/icon-close.svg";
 
     let product_preview_index = default_idx;
     const preview_count = previews.length;
@@ -33,14 +33,14 @@
     >
         {#if navigator}
             <button class="preview__dismiss" on:click={ondismiss}>
-                <img src={dismiss} alt="dismiss" />
+                <IconClose/>
             </button>
             <button
                 class="preview__navigator-prev"
                 on:click={onprev}
                 disabled={product_preview_index <= 0}
             >
-                <img src={prev} alt="prev" />
+                <IconPrevious/>
             </button>
             <button
                 class="preview__navigator-next"
@@ -48,7 +48,7 @@
                 disabled={product_preview_index >= preview_count - 1}
             >
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <img src={next} alt="next" />
+                <IconNext/>
             </button>
         {/if}
         <img

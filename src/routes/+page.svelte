@@ -1,10 +1,11 @@
-<script lang="ts">
+ <script lang="ts">
     import ProductPreview from "../components/product_preview.svelte";
     import Counter from "../components/counter.svelte";
 
     import { addItem } from "../stores";
+    import IconCart from "../components/icons/icon-cart.svelte";
+    import IconMenu from "../components/icons/icon-menu.svelte";
 
-    const cart = "/icons/icon-cart.svg";
     let product_count = 0;
 
     const previews = [
@@ -75,7 +76,7 @@
                 onchange={(val) => (product_count = val)}
             />
             <button class="product__add-to-cart-btn btn-primary" on:click={addtocart} disabled={product_count==0}>
-                <img src={cart} alt="cart"  class="white"/>
+                <IconCart/>
                 <span>Add to cart</span>
             </button>
         </div>
