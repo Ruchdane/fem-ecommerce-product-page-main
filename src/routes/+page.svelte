@@ -84,6 +84,8 @@
 </article>
 
 <style lang="scss">
+    @import "../mixin.scss";
+
     .product {
         --block-width: 430px;
         display: flex;
@@ -104,11 +106,12 @@
         &__name {
             font-weight: 700;
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.5em;
             color: var(--black);
         }
         &__description {
             line-height: 1.8rem;
+            font-size: 1rem;
             color: var(--dark-grayish-blue);
         }
         // &__price {
@@ -134,7 +137,7 @@
         &__value {
             grid-area: value;
             font-weight: 700;
-            font-size: 2rem;
+            font-size: 2em;
         }
         &__rate {
             padding: 5px;
@@ -162,6 +165,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+    }
+
+    @include responsive("xm"){
+        .product{
+            font-size: 0.8em;
+            gap: 1rem;
+            &__info{
+                gap: 0.5rem;
+            }
+            &__cart {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+            }   
+        }
+        .discount-price {
+            grid-template-areas: "value rate . initial";
+        }
 
     }
 </style>
