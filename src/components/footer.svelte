@@ -11,6 +11,7 @@
 
 <style lang="scss">
     $color: hsl(228, 45%, 44%);
-    .attribution { font-size: 11px; text-align: center; }
+
+    .attribution { font-size: 11px; text-align: center; padding-top: 4rem;}
     .attribution a { color: $color; }
 </style>

@@ -3,6 +3,7 @@
     import IconNext from "./icons/icon-next.svelte";
     import IconPrevious from "./icons/icon-previous.svelte";
     import IconClose from "./icons/icon-close.svelte";
+    import { onMount } from "svelte";
 
     export let previews: Preview[];
     export let navigator: boolean = false;
@@ -10,6 +11,7 @@
     export let onclick: ((id: number) => void) | undefined = undefined;
 
     let product_preview_index = default_idx;
+    let disabled = true;
     const preview_count = previews.length;
     const onnext = () => {
         if (product_preview_index < preview_count) product_preview_index++;
@@ -21,6 +23,12 @@
     export let ondismiss = () => {
         console.log("dismissed");
     };
+
+    onMount(() => {
+        disabled =
+            onclick != undefined &&
+            window.matchMedia("(max-width: 374px)").matches;
+    });
 </script>
 
 <div class="product__preview">
@@ -29,18 +37,18 @@
             if (onclick != undefined) onclick(product_preview_index);
         }}
         class="btn-secondary navigator-container"
-        disabled={onclick == undefined}
+        {disabled}
     >
         {#if navigator}
             <button class="preview__dismiss" on:click={ondismiss}>
-                <IconClose/>
+                <IconClose />
             </button>
             <button
                 class="preview__navigator-prev"
                 on:click={onprev}
                 disabled={product_preview_index <= 0}
             >
-                <IconPrevious/>
+                <IconPrevious />
             </button>
             <button
                 class="preview__navigator-next"
@@ -48,9 +56,24 @@
                 disabled={product_preview_index >= preview_count - 1}
             >
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <IconNext/>
+                <IconNext />
             </button>
         {/if}
+        <button
+            class="preview__navigator-prev-mobile mobile"
+            on:click={onprev}
+            disabled={product_preview_index <= 0}
+        >
+            <IconPrevious />
+        </button>
+        <button
+            class="preview__navigator-next-mobile mobile"
+            on:click={onnext}
+            disabled={product_preview_index >= preview_count - 1}
+        >
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <IconNext />
+        </button>
         <img
             src={previews[product_preview_index].src}
             alt="product"
@@ -75,6 +98,7 @@
 </div>
 
 <style lang="scss">
+    @import "../mixin.scss";
     .product {
         --block-width: 430px;
         &__preview {
@@ -86,7 +110,6 @@
             width: 100%;
             height: auto;
             max-width: var(--block-width);
-
             border-radius: 10px;
         }
         &__thumbnails {
@@ -110,7 +133,7 @@
 
         transition: all 0.2s ease;
         &:hover {
-            color: var(--orange)!important;
+            color: var(--orange) !important;
         }
 
         &:active {
@@ -126,6 +149,9 @@
         }
     }
     .navigator-container {
+        &:disabled {
+            cursor: auto;
+        }
         position: relative;
     }
 
@@ -145,6 +171,17 @@
             @extend .rounded-button;
             top: 50%;
             right: -1rem;
+        }
+
+        &__navigator-prev-mobile {
+            @extend .rounded-button;
+            top: 40%;
+            left: 1rem;
+        }
+        &__navigator-next-mobile {
+            @extend .rounded-button;
+            top: 40%;
+            right: 1rem;
         }
     }
 
@@ -170,6 +207,12 @@
             .thumbnail_btn-img {
                 filter: opacity(0.4);
             }
+        }
+    }
+
+    @include responsive("xm") {
+        .product__img-main {
+            border-radius: 0px;
         }
     }
 </style>

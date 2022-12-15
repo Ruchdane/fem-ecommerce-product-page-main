@@ -132,7 +132,7 @@
         display: grid;
         gap: 0.4rem 1rem;
         grid-template-areas: "value rate"
-        "initial .";
+        "fake .";
         width: fit-content;
         &__value {
             grid-area: value;
@@ -150,7 +150,7 @@
         &__intial {
             color: var(--dark-grayish-blue);
             text-decoration: line-through;
-            grid-area: initial;
+            grid-area: fake;
         }
     }
 
@@ -183,7 +183,13 @@
             }   
         }
         .discount-price {
-            grid-template-areas: "value rate . initial";
+            width: 100%;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            grid-template-areas: "value rate . fake";
+            &__initiale{
+                justify-self: end;
+            }
+            
         }
 
     }
