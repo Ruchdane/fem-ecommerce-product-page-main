@@ -21,7 +21,7 @@
         <h1 class="header__logo">sneakers</h1>
         {#if show_navlinks}
         <nav class="header__sidebar">
-            <button on:click={() => show_navlinks = false} class="header__button btn-secondary">
+            <button on:click={() => show_navlinks = false} class="header__button dismiss-btn btn-secondary">
                 <IconClose/>
             </button>
             <ul class="header__navlinks">
@@ -55,14 +55,36 @@
         border-bottom: 2px solid var(--light-grayish);
 
         &__sidebar{
-            position: absolute;
+            &::after{
+                content: '';
+                z-index: var(--z-sidebar);
+                position: fixed;
+                top:0;
+                left: 75%;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            .dismiss-btn{
+                padding-bottom: 2rem;
+            }
+            &> *{
+                padding-left: 1.5rem;
+            }
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            background-color: var(--white);
+            z-index: var(--z-sidebar);
             height: 100vh;
             width: 75%;
         }
+        
         &__links{
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            font-weight: 700;
+            gap: 0.5rem;
         }
         &__action{
             display: flex;
@@ -103,6 +125,7 @@
         }
 
         &__navlinks{
+        list-style: none;
         display: flex;
         flex-direction: column;
         gap: 2em;
