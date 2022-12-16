@@ -4,6 +4,11 @@ import Cart from "../components/cart.svelte";
     import IconCart from "./icons/icon-cart.svelte";
     const avatar = "/images/image-avatar.png";
     let show_cart = false;
+    let cart_blur = () => {
+        console.log("foo");
+        
+        show_cart = false;
+    }
 </script>
 
 <header class="header desktop">
@@ -28,7 +33,7 @@ import Cart from "../components/cart.svelte";
         >
             <IconCart/>
         </button>
-        <Cart id="header-cart" visible={show_cart}/>
+        <Cart id="header-cart" visible={show_cart} onblur={cart_blur}/>
         <button class="header__profile">
             <img src={avatar} alt="RA" />
         </button>

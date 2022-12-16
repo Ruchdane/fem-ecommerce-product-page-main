@@ -3,9 +3,12 @@
     import IconDelete from "./icons/icon-delete.svelte";
     export let id = "";
     export let visible = false;
+    export let onblur = () => {
+        visible = false;
+    }
 </script>
 
-<div class="cart" {id} class:hidden={!visible}  >
+<div class="cart" {id} class:hidden={!visible} on:blur={onblur} >
     <h4 class="cart__title">Cart</h4>
     {#if $cart.items.length > 0}
         <ul class="cart__items">

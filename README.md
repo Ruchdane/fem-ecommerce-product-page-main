@@ -70,6 +70,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Continued development
 
 - Fix transition with a little bit of animatino
+- Fix onblur for the cart content
 
 ### Useful resources
 
