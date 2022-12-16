@@ -1,9 +1,14 @@
 <script type="ts">
 import Cart from "../components/cart.svelte";
     import { setupFloatingCart } from "../floating";
-    const cart = "/icons/icon-cart.svg";
+    import IconCart from "./icons/icon-cart.svelte";
     const avatar = "/images/image-avatar.png";
     let show_cart = false;
+    let cart_blur = () => {
+        console.log("foo");
+        
+        show_cart = false;
+    }
 </script>
 
 <header class="header desktop">
@@ -26,9 +31,9 @@ import Cart from "../components/cart.svelte";
                 setupFloatingCart("header-cart-btn", "header-cart");
             }}
         >
-            <img src={cart} alt="cart" />
+            <IconCart/>
         </button>
-        <Cart id="header-cart"/>
+        <Cart id="header-cart" visible={show_cart} onblur={cart_blur}/>
         <button class="header__profile">
             <img src={avatar} alt="RA" />
         </button>
@@ -36,8 +41,7 @@ import Cart from "../components/cart.svelte";
 </header>
 
 <style lang="scss">
-
-    @import "../style.scss";
+    @import "../mixin.scss";
     .header {
         display: flex;
         justify-content: space-between;
@@ -61,9 +65,6 @@ import Cart from "../components/cart.svelte";
             margin: 0;
             font-weight: 700;
             font-size: 2.5rem;
-        }
-
-        &__cart {
         }
 
         &__profile {

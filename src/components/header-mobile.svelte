@@ -2,11 +2,12 @@
     import "../style.scss";
     import { setupFloatingCart } from "../floating";
     import Cart from "./cart.svelte";
+    import IconCart from "../components/icons/icon-cart.svelte";
+    import  IconMenu from "../components/icons/icon-menu.svelte";
+    import  IconClose from   "../components/icons/icon-close.svelte";
 
-    const cart = "/icons/icon-cart.svg";
+    
     const avatar = "/images/image-avatar.png";
-    const hamburger = "/icons/icon-menu.svg";
-    const dismiss = "/icons/icon-close.svg";
 
     let show_cart = false;
     let show_navlinks = false;
@@ -15,13 +16,13 @@
 <header class="header mobile">
     <div class="header__links">
         <button on:click={() => show_navlinks = true} class="header__button btn-secondary">
-            <img src={hamburger} alt="Show sidebar">
+            <IconMenu/>
         </button>
         <h1 class="header__logo">sneakers</h1>
         {#if show_navlinks}
         <nav class="header__sidebar">
-            <button on:click={() => show_navlinks = false} class="header__button btn-secondary">
-                <img src={dismiss} alt="Hide sidebar">
+            <button on:click={() => show_navlinks = false} class="header__button dismiss-btn btn-secondary">
+                <IconClose/>
             </button>
             <ul class="header__navlinks">
                 <li><a href="#links" class="header__navlinks-element">Collections</a></li>
@@ -36,9 +37,8 @@
     <div class="header__action" id="m-header-cart-btn">
         <button class="header__button btn-secondary" on:click={() =>{
              show_cart = !show_cart;
-             setupFloatingCart("m-header-cart-btn", "m-header-cart");
         }}>
-            <img src={cart} alt="cart" />
+        <IconCart/>
         </button>
         <Cart id="m-header-cart" visible={show_cart} />
         <button class="header__profile">
@@ -51,18 +51,40 @@
         display: flex;
         justify-content: space-between;
         gap: 3em;
-        padding-bottom: 25px;
+        padding-bottom: 0.5rem;
         border-bottom: 2px solid var(--light-grayish);
 
         &__sidebar{
-            position: absolute;
+            &::after{
+                content: '';
+                z-index: var(--z-sidebar);
+                position: fixed;
+                top:0;
+                left: 75%;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            .dismiss-btn{
+                padding-bottom: 2rem;
+            }
+            &> *{
+                padding-left: 1.5rem;
+            }
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            background-color: var(--white);
+            z-index: var(--z-sidebar);
             height: 100vh;
             width: 75%;
         }
+        
         &__links{
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            font-weight: 700;
+            gap: 0.5rem;
         }
         &__action{
             display: flex;
@@ -103,6 +125,7 @@
         }
 
         &__navlinks{
+        list-style: none;
         display: flex;
         flex-direction: column;
         gap: 2em;

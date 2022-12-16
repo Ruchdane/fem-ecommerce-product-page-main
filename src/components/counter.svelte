@@ -1,17 +1,17 @@
 <script lang="ts">
-    const minus =  "/icons/icon-minus.svg";
-    const plus =  "/icons/icon-plus.svg";
+    import IconPlus from "../components/icons/icon-plus.svelte";
+    import IconMinus from "../components/icons/icon-minus.svelte";
     export let count = 0
     export let onchange : (val: number) => void;
 </script>
 
 <div class="count-btn">
     <button class="count-btn__btn" on:click={() => onchange(count-1)} disabled={count === 0}>
-        <img src={minus} alt="-"> 
+        <IconMinus/>
     </button>
     <span class="count-btn__label"> {count} </span>
     <button class="count-btn__btn" on:click={() => onchange(count+1)}> 
-        <img src={plus} alt="+">
+        <IconPlus/>
     </button>
 </div>
 
@@ -19,7 +19,7 @@
     .count-btn{
         display: flex;
         gap: 16px;
-        padding: 5px;
+        padding: 1rem;
         justify-content: space-between;
         align-items: center;
         border-radius: 5px;

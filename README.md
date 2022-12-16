@@ -1,38 +1,84 @@
-# create-svelte
+# Frontend Mentor - E-commerce product page solution
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Creating a project
+## Table of contents
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Open a lightbox gallery by clicking on the large product image
+- Switch the large product image by clicking on the small thumbnail images
+- Add items to the cart
+- View the cart and remove items from it
+
+### Screenshots
+
+![](./screenshot.png)
+ 
+Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+
+Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+
+Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+
+**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+
+### Links
+
+- Solution URL:  [ solution ](https://your-solution-url.com)
+- Live Site URL: [live site](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- [Svelte](https://svelte.dev/) - Svelte framework
+- [Sass](https://sass-lang.com/) - Scss pre-processor
+- [https://floating-ui.com/](https://floating-ui.com/) - For popover
+
+### What I learned
+
+```css
+ .navlinks__element:hover {
+    box-shadow: 0px 37px var(--white),0 40px var(--orange);
+}
 ```
+### Continued development
 
-## Developing
+- Fix transition with a little bit of animatino
+- Fix onblur for the cart content
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Useful resources
 
-```bash
-npm run dev
+- [Floating ui](https://floating-ui.com/docs/tutorial) - How to use floating-ui
+- [SvelteKit](https://svelte.dev/tutorial/basics) - TO Get started with svelte
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Author
 
-## Building
+- Frontend Mentor - [@ruchdane](https://www.frontendmentor.io/profile/Ruchdane)
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Acknowledgments
