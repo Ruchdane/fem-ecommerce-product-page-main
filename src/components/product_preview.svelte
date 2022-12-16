@@ -26,7 +26,7 @@
 
     onMount(() => {
         disabled =
-            onclick != undefined &&
+            onclick == undefined &&
             window.matchMedia("(max-width: 374px)").matches;
     });
 </script>
@@ -34,7 +34,8 @@
 <div class="product__preview">
     <button
         on:click={() => {
-            if (onclick != undefined) onclick(product_preview_index);
+            if (onclick != undefined && window.matchMedia("(max-width: 374px)").matches) 
+                onclick(product_preview_index);
         }}
         class="btn-secondary navigator-container"
         {disabled}
@@ -212,6 +213,7 @@
 
     @include responsive("xm") {
         .product__img-main {
+            width: 100vw;
             border-radius: 0px;
         }
     }

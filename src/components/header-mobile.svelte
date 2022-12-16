@@ -37,7 +37,6 @@
     <div class="header__action" id="m-header-cart-btn">
         <button class="header__button btn-secondary" on:click={() =>{
              show_cart = !show_cart;
-             setupFloatingCart("m-header-cart-btn", "m-header-cart");
         }}>
         <IconCart/>
         </button>
@@ -52,7 +51,7 @@
         display: flex;
         justify-content: space-between;
         gap: 3em;
-        padding-bottom: 25px;
+        padding-bottom: 0.5rem;
         border-bottom: 2px solid var(--light-grayish);
 
         &__sidebar{

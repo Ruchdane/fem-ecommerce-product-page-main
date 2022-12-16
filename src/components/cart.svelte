@@ -41,8 +41,14 @@
 </div>
 
 <style lang="scss">
+     #m-header-cart{
+        left: 1rem;
+        top: 5rem;
+        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+    }
     .cart {
         position: absolute;
+        z-index: var(--z-cart);
         width: max-content;
         top: 0;
         left: 0;
@@ -66,6 +72,8 @@
             padding: 1rem;
             display: flex;
             flex-direction: column;
+            max-height: 300px;
+            overflow: auto;
             list-style-type: none;
             gap: 10px;
         }

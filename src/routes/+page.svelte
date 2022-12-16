@@ -156,7 +156,7 @@
 
     .lightbox{
         z-index: var(--z-lightbox);
-        position: absolute;
+        position: fixed;
         top:0;
         bottom: 0;
         width: 100vw;
@@ -173,6 +173,7 @@
             font-size: 0.8em;
             gap: 1rem;
             &__info{
+                padding: 0 1rem; 
                 gap: 0.5rem;
             }
             &__cart {
