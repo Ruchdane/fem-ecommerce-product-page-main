@@ -11,7 +11,6 @@
     export let onclick: ((id: number) => void) | undefined = undefined;
 
     let product_preview_index = default_idx;
-    let disabled = true;
     const preview_count = previews.length;
     const onnext = () => {
         if (product_preview_index < preview_count) product_preview_index++;
@@ -23,23 +22,10 @@
     export let ondismiss = () => {
         console.log("dismissed");
     };
-
-    onMount(() => {
-        disabled =
-            onclick == undefined &&
-            window.matchMedia("(max-width: 374px)").matches;
-    });
 </script>
 
 <div class="product__preview">
-    <button
-        on:click={() => {
-            if (onclick != undefined && window.matchMedia("(max-width: 374px)").matches) 
-                onclick(product_preview_index);
-        }}
-        class="btn-secondary navigator-container"
-        {disabled}
-    >
+    <div class="navigator-container">
         {#if navigator}
             <button class="preview__dismiss" on:click={ondismiss}>
                 <IconClose />
@@ -75,12 +61,25 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <IconNext />
         </button>
+        <button
+            on:click={() => {
+                if (onclick != undefined) onclick(product_preview_index);
+            }}
+            class="btn-secondary  desktop"
+            disabled={onclick == undefined}
+            >  
+            <img
+                src={previews[product_preview_index].src}
+                alt="product"
+                class="product__img-main"
+            />
+        </button>
         <img
-            src={previews[product_preview_index].src}
-            alt="product"
-            class="product__img-main"
-        />
-    </button>
+                src={previews[product_preview_index].src}
+                alt="product"
+                class="product__img-main mobile"
+            />
+    </div>
     <div class="product__thumbnails desktop">
         {#each previews as item, index (index)}
             <button

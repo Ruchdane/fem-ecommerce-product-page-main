@@ -107,9 +107,6 @@ body {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    &:focus{
-        border: 1px solid var(--orange);
-    }
     &:disabled{
         cursor: not-allowed;
     }
